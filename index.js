@@ -1,6 +1,6 @@
 
-    import { initializeApp } from 'firebase/app';
-    import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+    //import { initializeApp } from 'firebase/app';
+    //import { getAuth } from "firebase/auth";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -14,19 +14,20 @@
     messagingSenderId: "137786932535",
     appId: "1:137786932535:web:e7261356286f2782592eb2",
     measurementId: "G-74F1WSHG7G"
-  };
+  }
 
   
 
 // Initiliaze variables
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+//const app = initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
 const database = firebase.database()
 
 // Register Function 
 function register() {
   
-  alert("hi");
+  alert("hi")
 
   email=document.getElementById('email').value
   password=document.getElementById('password').value
@@ -43,7 +44,7 @@ if(validate_email(email)==false || validate_password(password)==false)
 
 //  Moving on with Authentication
 
-auth.createUserWithEmailAndPassword(auth,email,password).
+auth.createUserWithEmailAndPassword(email,password).
 then(function(){
 
 
